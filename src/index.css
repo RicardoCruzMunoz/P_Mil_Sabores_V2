@@ -1,0 +1,476 @@
+/* Background Color */
+body {
+    background-color: #FFF5E1;
+    display: grid;
+    min-height: 100dvh;
+    grid-template-rows: auto 1fr auto;
+}
+
+
+
+/* Banner */
+.banner {
+    background-color: #FFC0CB;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.banner::before{
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('assets/img/bg/portada2.jpg') repeat center;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.bloqueSolo{
+    display: flex !important;
+    background-color: rgba(255, 245, 225, 0.7) !important;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 15px;
+    color: #5D4037;
+}
+
+
+.bannerLogin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.iconTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-items: center;
+    gap: 10px;
+}
+@media (max-width: 768px) {
+    .iconTitle {
+        gap: 10px;
+        transform: scale(0.9);
+    }
+    .iconTitle img {
+        width: auto;
+        height: 40px;
+    }
+    .iconTitle h1 {
+        font-size: 1.2rem;
+    }
+}
+
+
+#logoMain {
+    height: 100px;
+    border: 3px solid #FFF5E1;
+    border-radius: 50%;
+}
+
+.divNav {
+    background-color: rgba(255, 245, 225, 0.8);
+    border: 2px solid #5D4037;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+}
+.divNav::before{
+    opacity: 0.3;
+}
+
+.navbar a:hover {
+    color: #FFC0CB !important;
+}
+
+
+/* Texto */
+h1 {
+    white-space: nowrap;
+}
+
+.tPrin {
+    color: #5D4037;
+    font-family: 'Lato';
+    text-align: center;
+}
+.tPrinTitle {
+    margin-top: 5px;
+    color: #5D4037;
+    font-family: 'Lato';
+    font-size: 24px;
+}
+
+.tSec {
+    color: #fcf3e3;
+    font-family: 'Pacifico';
+}
+
+.tTer {
+    color: #5D4037;
+    font-family: 'Pacifico';
+}
+
+/* Main */
+
+
+main {
+    min-height: 100dvh;
+    position: relative; /* necesario para el pseudo-elemento */
+}
+
+main::before {
+    content: "";
+    position: fixed; /* se queda fija como fondo */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('assets/img/bg/dulces\ chilenos.jpeg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+.cuadroVisMis {
+    background-color: #FFC0CB;
+    border: 2px solid #5D4037;
+    border-radius: 30px;
+}
+
+/* Imagenes Banner Pasteles en el Main */
+#bannerHori {
+    display: none;
+    height: 150px;
+    border: 2px solid #5D4037;
+}
+#bannerVert {
+    height: 500px;
+    border: 2px solid #5D4037;
+}
+@media (max-width: 991.98px) {
+    #bannerVert {
+        display: none;
+    }
+    #bannerHori {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+/* Pie de pagina */
+footer {
+    background-color: pink;
+    color: #4b2e2e;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+footer::before{
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('assets/img/bg/portada2.jpg') repeat center;
+    opacity: 0.3;
+    z-index: -1;
+}
+
+footer a {
+    margin: 0 8px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.bloqueFooter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 245, 225, 0.7);
+    border-radius: 15px;
+}
+
+#formLogin {
+    width: 50%;
+    background-color: #FFC0CB;
+    border: 2px solid #5D4037;
+    border-radius: 20px;
+}
+
+.borde {
+    border: 1px solid #5D4037 !important;
+}
+
+/* Botones */
+.btn-dark {
+    background-color: #fcf3e3;
+    color: #5D4037;
+}
+.btn-dark:hover {
+    background-color: #5D4037;
+    color: #fcf3e3;
+}
+
+.btnBanner {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-user {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    background-color: #5D4037;
+    color: #D7CCC8;
+}
+
+.btn-user:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+    background-color: #5d3e38;
+}
+
+.btn-user.dropdown-toggle:active {
+    background-color: #3E2723 !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transform: scale(1.05);
+}
+
+.btn-user::after {
+    display: none;
+}
+
+#cantidadProd {
+    width: 150px !important;
+    align-items: end;
+    justify-content: end;
+    margin-left: auto;
+}
+
+.rinconDer {
+    display: grid;
+    text-align: right;
+    justify-items: flex-end;
+}
+
+#btnAgregarCarro {
+    background-color: #fcf3e3;
+    color: #5D4037;
+    width: 150px;
+    border-radius: 20px;
+}
+#btnAgregarCarro:hover {
+    background-color: #5D4037;
+    color: #fcf3e3;
+    transform: scale(1.1);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+    border: 2px solid #5D4037;
+}
+
+
+
+/* menu perfil-cerrarSesion */
+.dropdown-menu {
+    background-color: #5d3e38;
+}
+.dropdown-item {
+    background-color: #5d3e38;
+    text-align: center;
+    color: #D7CCC8;
+}
+.dropdown-item:hover {
+    background-color: #734f44;
+    text-align: center;
+    color: #D7CCC8;
+}
+
+
+
+/* Carrusel */
+/* 🎠 CARRUSEL PERSONALIZADO */
+
+/* Contenedor principal del carrusel */
+.custom-carousel {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 768px) {
+  .custom-carousel {
+    height: 300px;
+  }
+}
+
+/* Cada slide debe tener altura completa */
+.custom-carousel .carousel-inner,
+.custom-carousel .carousel-item {
+  height: 100%;
+}
+
+/* Imágenes dentro del carrusel - ESTO ES LO CLAVE */
+.custom-carousel .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Opcional: ajusta las leyendas (textos) */
+.custom-carousel .carousel-caption {
+  bottom: 1rem;
+  background: rgba(0, 0, 0, 0.45);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  backdrop-filter: blur(4px);
+}
+
+/* 🧭 CONTROLES DE NAVEGACIÓN */
+.carousel-control-prev,
+.carousel-control-next {
+  color: #fff;
+  width: 15%;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* ICONOS PERSONALIZADOS */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.6));
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%235d3e38'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0'/></svg>");
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%235d3e38'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708'/></svg>");
+}
+
+
+/* 🔘 INDICADORES */
+.carousel-indicators [data-bs-target] {
+  width: 30px;
+  height: 4px;
+  margin: 4px;
+  opacity: 0.5;
+  background-color: #fff;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.carousel-indicators [data-bs-target].active {
+  opacity: 1;
+}
+
+/* TEXTO DE LAS CAPTIONS */
+.carousel-caption h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.carousel-caption p {
+  font-size: 1rem;
+  margin: 0;
+}
+
+/* ANIMACIÓN DE TRANSICIÓN */
+.carousel-item {
+  transition: transform 0.6s ease-in-out;
+}
+
+.cuadroCarrusel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFC0CB;
+    border: 2px solid #5D4037;
+    border-radius: 30px;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+
+
+
+
+
+/* Catálogo de productos */
+.busqFiltro {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #FFC0CB;
+    border: 2px solid #5D4037;
+    border-radius: 20px;
+    padding: 1.5rem 2rem;
+}
+
+.busqFiltro .row > div:last-child {
+    text-align: right;
+}
+
+.busqFiltro .row > div:last-child select {
+    margin-left: auto;
+}
+.bg-dark {
+    background-color: #FFC0CB !important;
+}
+
+.text-bg-secondary {
+    background-color: #5D4037 !important;
+    color: #fcf3e3 !important;
+}
+
+.border-secondary-subtle {
+    border-color: #5D4037 !important;
+}
+
+.card img{
+    background-color: white;
+}
+
+.btn-sm {
+    background-color: #5D4037;
+}
+.btn-sm:hover {
+    background-color:#97695b;
+    color: #fcf3e3;
+}
+
+/* Detalle del producto */
+#cajaDetalle {
+    background-color: #FFC0CB;
+}
+/*
+CSS enfocado 
+aunque este en amarillo, funciona igual
+*/
+.input-sin-flechas {
+    -moz-appearance: textfield;
+}
