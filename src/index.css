@@ -488,3 +488,16 @@ aunque este en amarillo, funciona igual
     width: auto;
     height: auto;
 }
+
+.form-group{
+    padding-bottom: 15px;
+}
+
+#cajaAcceso {
+    background-color: #FFC0CB;
+    border: 2px solid #5D4037;
+    border-radius: 30px;
+    width: 700px;
+    justify-content: center;
+    
+}
