@@ -471,6 +471,20 @@ footer a {
 CSS enfocado 
 aunque este en amarillo, funciona igual
 */
-.input-sin-flechas {
-    -moz-appearance: textfield;
+
+#cajaDetalle .card-title, .cajitaClara {
+    background-color: #fcf3e3;
+    border-radius: 20px;
+}
+
+.imgDetalleP {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.imgDetalleP img {
+    width: auto;
+    height: auto;
 }
