@@ -1,8 +1,8 @@
 export const Contacto = () => {
   return (
-    <div className="container form-container p-5">
+    <div className="container form-container p-5 my-5 cuadroVisMis col-md-8">
       <h1 className="tTer">Contacto</h1>
-      <form>
+      <form className="container justify-content-center">
         <div className="form-group">
           <label className="tTer">Correo electrónico</label>
           <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="nombre@correo.com" />
@@ -20,14 +20,12 @@ export const Contacto = () => {
             <option>Torta personalizada</option>
           </select>
         </div>
-
         <div className="form-group">
           <label className="tTer">Mensaje</label>
           <textarea className="form-control" placeholder="Mensaje..."></textarea>
         </div>
+        <button className="btn btn-dark">Enviar</button>
       </form>
-      <button className="btn-dark btn">Enviar</button>
     </div>
   )
 }
-

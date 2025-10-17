@@ -37,17 +37,19 @@ body {
 
 
 .bannerLogin {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  position: relative;
 }
 
 .iconTitle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  max-width: 300px;
 }
 @media (max-width: 768px) {
     .iconTitle {
@@ -55,8 +57,8 @@ body {
         transform: scale(0.9);
     }
     .iconTitle img {
-        width: auto;
-        height: 40px;
+        width: auto !important;
+        height: 80px !important;
     }
     .iconTitle h1 {
         font-size: 1.2rem;
@@ -71,20 +73,79 @@ body {
 }
 
 .divNav {
-    background-color: rgba(255, 245, 225, 0.8);
-    border: 2px solid #5D4037;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 245, 225, 0.8);
+  border: 2px solid #5D4037;
+  border-radius: 20px;
+  padding: 0.25rem 1rem;
+  margin: 0 auto;
+  max-width: 600px;
 }
+ .bi-person-circle {
+    width: 50px;
+    height: 50px;
+ }
+
+.btnPerfil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ajustes responsive */
+@media (max-width: 991.98px) {
+  .bannerLogin {
+    flex-wrap: wrap;
+    padding: 0.5rem;
+  }
+
+  .iconTitle {
+    margin-right: 0;
+  }
+
+  .divNav {
+    height: auto;
+    padding: 0.15rem 0.5rem;
+  }
+  
+  .navbar-toggler {
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+  }
+
+  .btnPerfil {
+    padding: 0.25rem;
+  }
+
+  /* Ajusta el tamaño del logo en móvil si es necesario */
+  #logoMain {
+    width: 40px;
+    height: auto;
+  }
+
+  /* Ajusta el título en móvil */
+  .tPrinTitle {
+    font-size: 1.2rem;
+  }
+}
+
 .divNav::before{
     opacity: 0.3;
 }
+
 
 .navbar a:hover {
     color: #FFC0CB !important;
 }
 
+.btnPerfil {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    align-items: center;
+}
 
 /* Texto */
 h1 {
@@ -304,8 +365,8 @@ footer a {
   height: 450px;
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 1rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+  z-index: 1; /* Asegura que esté por debajo del offcanvas */
 }
 
 /* Para pantallas pequeñas */
@@ -346,7 +407,20 @@ footer a {
   width: 15%;
   opacity: 0.6;
   transition: opacity 0.2s ease;
+  z-index: 1; /* Reduce el z-index */
 }
+
+  .carousel-caption {
+    display: block !important;
+    width: 90% !important;
+}
+
+@media (min-width: 768px) {
+    .carousel-caption {
+        width: 20% !important;
+    }
+}
+
 
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
@@ -471,7 +545,7 @@ footer a {
 CSS enfocado 
 aunque este en amarillo, funciona igual
 */
-<<<<<<< HEAD
+
 .input-sin-flechas {
     -moz-appearance: textfield;
 }
@@ -518,7 +592,6 @@ aunque este en amarillo, funciona igual
 }
 
 /* Fin comunidad */
-=======
 
 #cajaDetalle .card-title, .cajitaClara {
     background-color: #fcf3e3;
@@ -536,9 +609,7 @@ aunque este en amarillo, funciona igual
     width: auto;
     height: auto;
 }
-<<<<<<< HEAD
->>>>>>> 42faf1c9a7bff17836a12e7291e1a3b8c98746a0
-=======
+
 
 .form-group{
     padding-bottom: 15px;
@@ -552,4 +623,46 @@ aunque este en amarillo, funciona igual
     justify-content: center;
     
 }
->>>>>>> 9dc9fa2dd58a3f192144f946655d3f5a62930819
+
+
+/* ESTO ES PARA QUE EL MENU DEL PERFIL SE VEA POR ENCIMA DE TODO*/
+/* Ajustes para el offcanvas del perfil */
+.offcanvas {
+  z-index: 99999 !important;
+}
+
+.offcanvas-backdrop {
+  z-index: 99998 !important;
+}
+
+/* Ajustar el botón de perfil */
+.btnPerfil {
+  position: relative;
+  z-index: 99997;
+}
+
+/* Asegurar que el carrusel esté por debajo */
+.carousel,
+.carousel-inner,
+.carousel-item,
+.carousel-control-prev,
+.carousel-control-next {
+  z-index: 1;
+}
+
+.banner {
+  z-index: 1000;
+}
+
+
+
+
+/* OFFCANVAS - PERFIL */
+.offcanvas {
+    background-color: #FFC0CB;
+    border: 2px solid #5D4037;
+}
+
+.offcanvas-header {
+    border-bottom: 2px solid #5D4037;
+}
