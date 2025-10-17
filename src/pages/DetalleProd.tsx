@@ -22,17 +22,19 @@ export const DetalleProd = () => {
     <>
       <div className="card m-5">
         <div className="row g-0">
-          <div className="col-md-4">
+          <div className="col-md-4 imgDetalleP">
             <img src={producto?.imagen} className="img-fluid rounded-start" alt={producto?.titulo}/>
           </div>
           <div id="cajaDetalle" className="col-md-8">
             <div className="card-body">
-              <h1 className="card-title tTer">
+              <h1 className="card-title tTer p-2 mb-2">
                 <strong>{producto?.titulo}</strong>
               </h1>
               <span className="badge rounded-pill text-bg-secondary mb-2 p-2">{producto?.categoria}</span>
-              <h5 className="card-text tTer">{producto?.descripcion}</h5>
-              <h2 className="card-text tTer">${producto?.precio}</h2>
+              <div className="cajitaClara p-2">
+                <h2 className="card-text tTer">${producto?.precio}</h2>
+                <h5 className="card-text tTer">{producto?.descripcion}</h5>
+              </div>
             </div>
             <div className="d-flex flex-column justify-content-end align-items-end mx-4 py-3">
               <div className="input-group my-3" style={{ maxWidth: "200px" }}>

@@ -471,6 +471,7 @@ footer a {
 CSS enfocado 
 aunque este en amarillo, funciona igual
 */
+<<<<<<< HEAD
 .input-sin-flechas {
     -moz-appearance: textfield;
 }
@@ -517,3 +518,22 @@ aunque este en amarillo, funciona igual
 }
 
 /* Fin comunidad */
+=======
+
+#cajaDetalle .card-title, .cajitaClara {
+    background-color: #fcf3e3;
+    border-radius: 20px;
+}
+
+.imgDetalleP {
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.imgDetalleP img {
+    width: auto;
+    height: auto;
+}
+>>>>>>> 42faf1c9a7bff17836a12e7291e1a3b8c98746a0
