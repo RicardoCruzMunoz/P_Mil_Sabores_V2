@@ -147,6 +147,14 @@ body {
     align-items: center;
 }
 
+.offcanvas {
+    background-color: #fcf3e3;
+    color: #D7CCC8;
+}
+.offcanvas-header {
+    border-bottom: 2px solid #5D4037;
+}
+
 /* Texto */
 h1 {
     white-space: nowrap;
@@ -439,44 +447,44 @@ footer a {
 }
 
 .carousel-control-prev-icon {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%235d3e38'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0'/></svg>");
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%235d3e38'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0'/></svg>");
 }
 
 .carousel-control-next-icon {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%235d3e38'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708'/></svg>");
+    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%235d3e38'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708'/></svg>");
 }
 
 
 /* 🔘 INDICADORES */
 .carousel-indicators [data-bs-target] {
-  width: 30px;
-  height: 4px;
-  margin: 4px;
-  opacity: 0.5;
-  background-color: #fff;
-  transition: opacity 0.3s ease;
-  cursor: pointer;
-  border-radius: 2px;
+    width: 30px;
+    height: 4px;
+    margin: 4px;
+    opacity: 0.5;
+    background-color: #fff;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    border-radius: 2px;
 }
 
 .carousel-indicators [data-bs-target].active {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* TEXTO DE LAS CAPTIONS */
 .carousel-caption h5 {
-  font-size: 1.5rem;
-  font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
 .carousel-caption p {
-  font-size: 1rem;
-  margin: 0;
+    font-size: 1rem;
+    margin: 0;
 }
 
 /* ANIMACIÓN DE TRANSICIÓN */
 .carousel-item {
-  transition: transform 0.6s ease-in-out;
+    transition: transform 0.6s ease-in-out;
 }
 
 .cuadroCarrusel {
@@ -561,7 +569,7 @@ aunque este en amarillo, funciona igual
     text-align: left;
 }
 .divPrin {
-    width: 800px;
+    width: 100px !important; 
     margin: auto;
 }
 
@@ -573,11 +581,19 @@ aunque este en amarillo, funciona igual
     min-width: 300px;
 }
 
+.cuadroPresComunidad {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    max-width: 1000px;
+}
+
 .contenedorComunidad{
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
     align-items: stretch;
+    justify-content: center;
 }
 
 .cuadroContenido{
@@ -625,7 +641,9 @@ aunque este en amarillo, funciona igual
 }
 
 
-/* ESTO ES PARA QUE EL MENU DEL PERFIL SE VEA POR ENCIMA DE TODO*/
+
+
+
 /* Ajustes para el offcanvas del perfil */
 .offcanvas {
   z-index: 99999 !important;
@@ -654,15 +672,3 @@ aunque este en amarillo, funciona igual
   z-index: 1000;
 }
 
-
-
-
-/* OFFCANVAS - PERFIL */
-.offcanvas {
-    background-color: #FFC0CB;
-    border: 2px solid #5D4037;
-}
-
-.offcanvas-header {
-    border-bottom: 2px solid #5D4037;
-}

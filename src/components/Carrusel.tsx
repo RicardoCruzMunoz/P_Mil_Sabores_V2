@@ -13,7 +13,7 @@ export const Carrusel = () => {
             <div className="carousel-inner">
                 <div className="carousel-item active">
                     <img src={productos[0].imagen} className="d-block w-100" alt="..."/>
-                    <div className="carousel-caption d-block w-100 w-md-50 mx-auto">
+                    <div className="carousel-caption d-block w-100 mx-auto">
                         <h5 className='tSec'>{productos[0].titulo}</h5>
                         <h5 className="tSec">${productos[0].precio}</h5>
                         <Link className='btn btn-dark mb-3' to={`/detalleproducto/${productos[0].id}`}>Ver Detalle</Link>
@@ -21,7 +21,7 @@ export const Carrusel = () => {
                 </div>
                 <div className="carousel-item">
                     <img src={productos[10].imagen} className="d-block w-100" alt="..."/>
-                    <div className="carousel-caption d-block w-100 w-md-50 mx-auto">
+                    <div className="carousel-caption d-block w-100 mx-auto">
                         <h5 className='tSec'>{productos[10].titulo}</h5>
                         <h5 className="tSec">${productos[10].precio}</h5>
                         <Link className='btn btn-dark mb-3' to={`/detalleproducto/${productos[10].id}`}>Ver Detalle</Link>
@@ -29,7 +29,7 @@ export const Carrusel = () => {
                 </div>
                 <div className="carousel-item">
                     <img src={productos[6].imagen} className="d-block w-100" alt="..."/>
-                    <div className="carousel-caption d-block w-100 w-md-50 mx-auto">
+                    <div className="carousel-caption d-block w-100 mx-auto">
                         <h5 className='tSec'>{productos[6].titulo}</h5>
                         <h5 className="tSec">${productos[6].precio}</h5>
                         <Link className='btn btn-dark mb-3' to={`/detalleproducto/${productos[6].id}`}>Ver Detalle</Link>

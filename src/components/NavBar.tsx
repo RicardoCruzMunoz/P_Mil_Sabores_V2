@@ -59,7 +59,10 @@ export const NavBar = () => {
                                 <div className="offcanvas-body">
                                     <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                                         <li className="nav-item">
-                                            <a className="nav-link tTer" href="/">D</a>
+                                            <a className="nav-link tTer" href="/login">Iniciar Sesión</a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a className="nav-link tTer" href="/registro">Registro</a>
                                         </li>
                                     </ul>
                                 </div>
