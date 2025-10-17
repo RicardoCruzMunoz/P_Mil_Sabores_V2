@@ -7,6 +7,7 @@ import { Comunidad } from "./pages/Comunidad"
 import { Nosotros } from "./pages/Nosotros"
 import { Login } from "./pages/Login"
 import { DetalleProd } from "./pages/DetalleProd"
+import { Registro } from "./pages/Registro"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/comunidad" element={<Comunidad />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/registro" element={<Registro/>} />
         <Route path="/detalleproducto/:id" element={<DetalleProd />} />
       </Route>
     </Routes>

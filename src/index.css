@@ -536,4 +536,20 @@ aunque este en amarillo, funciona igual
     width: auto;
     height: auto;
 }
+<<<<<<< HEAD
 >>>>>>> 42faf1c9a7bff17836a12e7291e1a3b8c98746a0
+=======
+
+.form-group{
+    padding-bottom: 15px;
+}
+
+#cajaAcceso {
+    background-color: #FFC0CB;
+    border: 2px solid #5D4037;
+    border-radius: 30px;
+    width: 700px;
+    justify-content: center;
+    
+}
+>>>>>>> 9dc9fa2dd58a3f192144f946655d3f5a62930819
