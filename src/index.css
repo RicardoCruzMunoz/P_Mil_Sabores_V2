@@ -6,6 +6,12 @@ body {
     grid-template-rows: auto 1fr auto;
 }
 
+/* Index */
+.cuadroIndex {
+    border: 2px solid #5D4037;
+    height: 200px;
+}
+
 
 
 /* Banner */
@@ -33,6 +39,12 @@ body {
     padding: 10px 20px;
     border-radius: 15px;
     color: #5D4037;
+}
+
+.bloqueTexto {
+    background-color: #fcf3e3;
+    width: 300px;
+    border: 1px solid #5d3e38;
 }
 
 #navbarNav {
@@ -122,6 +134,18 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0.25rem;
+}
+
+#btnIndex {
+    background-color: #fcf3e3;
+    border: #3E2723 solid 1px;
+    color: #5D4037;
+    width: 150px;
+}
+#btnIndex:hover {
+    background-color: #5D4037;
+    color: #fcf3e3;
+    transform: scale(1.05);
 }
 
 /* Ajustes responsive */
@@ -392,6 +416,10 @@ footer a {
 /* Carrusel */
 /* 🎠 CARRUSEL PERSONALIZADO */
 
+.tituloCarrusel {
+    width: 1000px !important;
+}
+
 /* Contenedor principal del carrusel */
 .custom-carousel {
   position: relative;
@@ -444,9 +472,11 @@ footer a {
   z-index: 1; /* Reduce el z-index */
 }
 
-  .carousel-caption {
-    display: block !important;
+.carousel-caption {
+    display: grid !important;
     width: 90% !important;
+    place-items: center;
+
 }
 
 @media (min-width: 768px) {
@@ -499,13 +529,17 @@ footer a {
 
 /* TEXTO DE LAS CAPTIONS */
 .carousel-caption h5 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
 }
 
 .carousel-caption p {
     font-size: 1rem;
     margin: 0;
+}
+
+.btnDetCarrusel {
+    transform: scale(0.85);
 }
 
 /* ANIMACIÓN DE TRANSICIÓN */
@@ -524,6 +558,7 @@ footer a {
     padding: 15px;
     margin-bottom: 30px;
 }
+
 
 
 
@@ -559,7 +594,7 @@ footer a {
     border-color: #5D4037 !important;
 }
 
-.card img{
+.ratio img{
     background-color: white;
 }
 

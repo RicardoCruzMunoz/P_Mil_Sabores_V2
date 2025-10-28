@@ -38,7 +38,7 @@ export const productos: Producto[] = [
         descripcion: "Torta tradicional chilena con manjar y nueces, un deleite para los amantes de los sabores dulces y clásicos.",
         categoria: "Tortas Circulares",
         precio: 42000,
-        imagen: "/pasteles/circular_manjar.jpg",
+        imagen: "/pasteles/circular_manjar.png",
     },
     {
         id: "TE001",
@@ -70,7 +70,7 @@ export const productos: Producto[] = [
         descripcion: "Un postre italiano individual con capas de café, mascarpone y cacao, perfecto para finalizar cualquier comida.",
         categoria: "Postres Individuales",
         precio: 5500,
-        imagen: "/pasteles/tiramisu_clasico.jpg",
+        imagen: "/pasteles/tiramisu_clasico.png",
     },
     {
         id: "PT001",
@@ -102,7 +102,7 @@ export const productos: Producto[] = [
         descripcion: "Suave y cremoso, este cheesecake es una opción perfecta para disfrutar sin culpa.",
         categoria: "Productos sin Azúcar",
         precio: 47000,
-        imagen: "/pasteles/cheesecake.jpg",
+        imagen: "/pasteles/cheesecake.png",
     },
     {
         id: "PG001",

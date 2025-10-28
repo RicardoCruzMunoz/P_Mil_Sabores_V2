@@ -1,11 +1,22 @@
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { productos, type Producto } from "../data/productos"
+import { useLocation } from 'react-router-dom';
 
 export const Catalogo = () => {
+    const { search } = useLocation();
+    const params = new URLSearchParams(search);
+    const categoria = params.get('categoria') || '';
+
     const [productosFiltrados, setProductosFiltrados] = useState<Producto[]>(productos);
     const [busqueda, setBusqueda] = useState('');
-    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('todos');
+    // inicializa desde el query param si viene
+    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<string>(() => categoria || 'todos');
+
+    // si cambia el query param, sincroniza el selector
+    useEffect(() => {
+        setCategoriaSeleccionada(categoria || 'todos');
+    }, [categoria]);
 
     // Filtrar productos cuando cambia la búsqueda o categoría
     useEffect(() => {
@@ -13,8 +24,8 @@ export const Catalogo = () => {
 
         // Filtrar por categoría
         if (categoriaSeleccionada !== 'todos') {
-            resultados = resultados.filter(
-                producto => producto.categoria === categoriaSeleccionada
+            resultados = resultados.filter(producto =>
+                String(producto.categoria).toLowerCase() === categoriaSeleccionada.toLowerCase()
             );
         }
 
