@@ -20,10 +20,10 @@ export const DetalleProd = () => {
 
   return (
     <>
-      <div className="card m-5">
+      <div className="card mt-5 mx-auto cuadroDP">
         <div className="row g-0">
           <div className="col-md-4 imgDetalleP">
-            <img src={producto?.imagen} className="img-fluid rounded-start" alt={producto?.titulo}/>
+            <img src={producto?.imagen} className="img-fluid rounded-start m-1" alt={producto?.titulo}/>
           </div>
           <div id="cajaDetalle" className="col-md-8">
             <div className="card-body">

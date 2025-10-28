@@ -84,7 +84,7 @@ export const Catalogo = () => {
                             <div key={p.id} className="col-lg-4 col-md-6 col-12">
                                 <article className="card h-100 bg-dark text-light border-secondary-subtle">
                                     <div className="ratio ratio-16x9">
-                                        <img src={p.imagen} className="card-img-top w-100 h-100 object-fit-contain" alt={p.titulo}/>
+                                        <img src={p.imagen} className="card-img-top object-fit-contain" alt={p.titulo}/>
                                     </div>
                                     <div className="card-body">
                                         <span className="badge rounded-pill text-bg-secondary mb-2">{p.categoria}</span>

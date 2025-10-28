@@ -26,7 +26,7 @@ export const NavBar = () => {
                                     >
                                         <span className="navbar-toggler-icon"></span>
                                     </button>
-                                    <div className="collapse navbar-collapse" id="navbarNav">
+                                    <div className="collapse navbar-collapse px-3" id="navbarNav">
                                         <ul className="navbar-nav">
                                             <li className="nav-item">
                                                 <a className="nav-link tPrin" href="/catalogo">Catalogo</a>
@@ -48,23 +48,19 @@ export const NavBar = () => {
                     </div>
                     <nav id='btnDer' className="navbar nav-offcanvas btnPerfil me-2 my-2">
                         <div className="container-fluid">
-                            <button className="navbar-toggler btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                                <i className="bi bi-person-circle p-3"></i>
+                            <button id="btnPerfil" className="navbar-toggler btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                                <i className="bi bi-person-circle"></i>
                             </button>
                             <div className="offcanvas offcanvas-end" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                                 <div className="offcanvas-header">
-                                    <h5 className="offcanvas-title tPrin" id="offcanvasNavbarLabel">Perfil</h5>
+                                    <h5 className="offcanvas-title tPrin" id="offcanvasNavbarLabel">Mi Cuenta</h5>
                                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                                 </div>
                                 <div className="offcanvas-body">
-                                    <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-                                        <li className="nav-item">
-                                            <a className="nav-link tTer" href="/login">Iniciar Sesión</a>
-                                        </li>
-                                        <li className="nav-item">
-                                            <a className="nav-link tTer" href="/registro">Registro</a>
-                                        </li>
-                                    </ul>
+                                    <div className='row gap-3 m-5'>
+                                        <a className='btn btn-secondary  col-12' href='/login'>Iniciar Sesión</a>
+                                        <a className='btn btn-secondary  col-12' href='/registro'>Registrarse</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
