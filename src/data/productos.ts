@@ -137,3 +137,8 @@ export const productos: Producto[] = [
         imagen: "/pasteles/galleta_vegana_avena.jpg",
     },
 ];
+
+export type CarItem = {
+    producto: Producto;
+    cantidad: number;
+};
