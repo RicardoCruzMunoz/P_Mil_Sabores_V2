@@ -414,152 +414,334 @@ footer a {
 
 
 /* Carrusel */
-/* 🎠 CARRUSEL PERSONALIZADO */
 
-.tituloCarrusel {
-    width: 1000px !important;
+#carruselMain {
+    width: 100%;
+    height: 600px;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    
 }
 
-/* Contenedor principal del carrusel */
-.custom-carousel {
-  position: relative;
-  width: 100%;
-  height: 450px;
-  margin: 0 auto;
-  overflow: hidden;
-
-  z-index: 1; /* Asegura que esté por debajo del offcanvas */
+#carruselMain .carousel-inner {
+    height: 100%;
 }
 
-/* Para pantallas pequeñas */
-@media (max-width: 768px) {
-  .custom-carousel {
-    height: 300px;
-  }
+#carruselMain .carousel-item {
+    position: relative;
+    height: 600px;
 }
 
-/* Cada slide debe tener altura completa */
-.custom-carousel .carousel-inner,
-.custom-carousel .carousel-item {
-  height: 100%;
+#carruselMain .carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
 }
 
-/* Imágenes dentro del carrusel - ESTO ES LO CLAVE */
-.custom-carousel .carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
+#carruselMain .carousel-caption {
+    position: absolute;
+    z-index: 10 !important;
+    top: 50%; /* Centrado vertical */
+    bottom: auto;
+    transform: translateY(-50%); /* Centrado vertical */
+    background-color: #5D4037;
+    border-radius: 15px;
+    padding: 25px 40px;
+    min-width: 350px;
+    max-width: 600px;
 }
 
-/* Opcional: ajusta las leyendas (textos) */
-.custom-carousel .carousel-caption {
-  bottom: 1rem;
-  background: rgba(0, 0, 0, 0.45);
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
-  backdrop-filter: blur(4px);
+/* Posicionamiento específico para cada slide */
+#carruselMain .carousel-item:nth-child(1) .carousel-caption {
+    left: 10%; /* Izquierda */
+    right: auto;
+    transform: translateY(-50%);
+    text-align: left;
+    opacity: 0.85;
 }
 
-/* 🧭 CONTROLES DE NAVEGACIÓN */
-.carousel-control-prev,
-.carousel-control-next {
-  color: #fff;
-  width: 15%;
-  opacity: 0.6;
-  transition: opacity 0.2s ease;
-  z-index: 1; /* Reduce el z-index */
+#carruselMain .carousel-item:nth-child(2) .carousel-caption {
+    left: auto;
+    right: 10%; /* Derecha */
+    transform: translateY(-50%);
+    text-align: right;
 }
 
-.carousel-caption {
-    display: grid !important;
-    width: 90% !important;
-    place-items: center;
-
+#carruselMain .carousel-item:nth-child(3) .carousel-caption {
+    left: 10%; /* Izquierda */
+    right: auto;
+    transform: translateY(-50%);
+    text-align: left;
 }
 
-@media (min-width: 768px) {
-    .carousel-caption {
-        width: 20% !important;
+#carruselMain .carousel-caption h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+#carruselMain .carousel-caption p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+#carruselMain .carousel-caption .btn {
+    z-index: 11;
+    position: relative;
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+    #carruselMain,
+    #carruselMain .carousel-item {
+        height: 450px;
+    }
+    
+    #carruselMain .carousel-caption {
+        padding: 20px 30px;
+        min-width: 300px;
+    }
+    
+    #carruselMain .carousel-item:nth-child(1) .carousel-caption,
+    #carruselMain .carousel-item:nth-child(3) .carousel-caption {
+        left: 5%;
+    }
+    
+    #carruselMain .carousel-item:nth-child(2) .carousel-caption {
+        right: 5%;
+    }
+    
+    #carruselMain .carousel-caption h3 {
+        font-size: 1.5rem;
+    }
+    
+    #carruselMain .carousel-caption p {
+        font-size: 1rem;
     }
 }
 
-
-.carousel-control-prev:hover,
-.carousel-control-next:hover {
-  opacity: 1;
+/* Móviles */
+@media (max-width: 768px) {
+    #carruselMain,
+    #carruselMain .carousel-item {
+        height: 350px;
+    }
+    
+    #carruselMain .carousel-caption {
+        padding: 15px 20px;
+        min-width: 250px;
+        max-width: 90%;
+    }
+    
+    /* En móviles todos centrados */
+    #carruselMain .carousel-item:nth-child(1) .carousel-caption,
+    #carruselMain .carousel-item:nth-child(2) .carousel-caption,
+    #carruselMain .carousel-item:nth-child(3) .carousel-caption {
+        left: 50% !important;
+        right: auto !important;
+        transform: translate(-50%, -50%) !important;
+        text-align: center !important;
+    }
+    
+    #carruselMain .carousel-caption h3 {
+        font-size: 1.2rem;
+        margin-bottom: 8px;
+    }
+    
+    #carruselMain .carousel-caption p {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+    
+    #carruselMain .carousel-caption .btn {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
 }
 
-/* ICONOS PERSONALIZADOS */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center;
-  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.6));
+/* Móviles pequeños */
+@media (max-width: 576px) {
+    #carruselMain,
+    #carruselMain .carousel-item {
+        height: 300px;
+    }
+    
+    #carruselMain .carousel-caption {
+        padding: 12px 15px;
+        min-width: 200px;
+    }
+    
+    #carruselMain .carousel-caption h3 {
+        font-size: 1rem;
+    }
+    
+    #carruselMain .carousel-caption p {
+        font-size: 0.8rem;
+    }
 }
 
-.carousel-control-prev-icon {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%235d3e38'><path d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0'/></svg>");
+.bi-caret-left-fill, .bi-caret-right-fill {
+    color: #5D4037;
 }
 
-.carousel-control-next-icon {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%235d3e38'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708'/></svg>");
+/* Imágenes laterales del carrusel */
+.carousel-imagen-lateral {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    z-index: 12;
 }
 
-
-/* 🔘 INDICADORES */
-.carousel-indicators [data-bs-target] {
-    width: 30px;
-    height: 4px;
-    margin: 4px;
-    opacity: 0.5;
-    background-color: #fff;
-    transition: opacity 0.3s ease;
-    cursor: pointer;
-    border-radius: 2px;
+.carousel-imagen-lateral.derecha {
+    right: -180px; /* A la derecha del caption */
 }
 
-.carousel-indicators [data-bs-target].active {
-    opacity: 1;
+.carousel-imagen-lateral.izquierda {
+    left: -180px; /* A la izquierda del caption */
 }
 
-/* TEXTO DE LAS CAPTIONS */
-.carousel-caption h5 {
-    font-size: 1.3rem;
-    font-weight: 600;
+/* Tablets */
+@media (max-width: 992px) {
+    .carousel-imagen-lateral {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .carousel-imagen-lateral.derecha {
+        right: -140px;
+    }
+    
+    .carousel-imagen-lateral.izquierda {
+        left: -140px;
+    }
 }
 
-.carousel-caption p {
+/* Móviles - Ocultar imágenes laterales */
+@media (max-width: 768px) {
+    .carousel-imagen-lateral {
+        display: none;
+    }
+}
+
+.botonCassuelA{
+    position: absolute;
+    top: 50%;
+    right: 90%;
+    transform: translate(-50%, -50%);
+    background-color: #5D4037;
+    color: #fcf3e3;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
     font-size: 1rem;
-    margin: 0;
+    opacity: 0.8;
 }
 
-.btnDetCarrusel {
-    transform: scale(0.85);
+/* ----- CONTENEDOR PRINCIPAL ----- */
+.carrusel-ca2 {
+  position: relative;
+  width: 100%;
 }
 
-/* ANIMACIÓN DE TRANSICIÓN */
-.carousel-item {
-    transition: transform 0.6s ease-in-out;
+/* ----- LISTA DE ITEMS ----- */
+.carrusel-contenedor-ca2 {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 1rem;
+  padding: 1rem 0;
 }
 
-.cuadroCarrusel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #FFC0CB;
-    border: 2px solid #5D4037;
-    border-radius: 30px;
-    padding: 15px;
-    margin-bottom: 30px;
+.carrusel-contenedor-ca2::-webkit-scrollbar {
+  display: none;
 }
 
+/* ----- CADA ITEM ----- */
+.carrusel-item-ca2 {
+  flex: 0 0 calc(95% / 3);
+}
 
+/* ----- TARJETAS ----- */
+.tarjeta-ca2 {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: #3E2723 solid 1px;
+}
+
+.tarjeta-imagen-ca2 img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.tarjeta-cuerpo-ca2 {
+  padding: 1rem;
+}
+
+.tarjeta-titulo-ca2 {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.tarjeta-texto-ca2 {
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+}
+
+.tarjeta-boton-ca2 {
+  border: none;
+  background-color: #5D4037;
+  color: #fcf3e3;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ----- BOTONES DE NAVEGACIÓN ----- */
+.carrusel-boton-ca2 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #5d3e38;
+  color: #fcf3e3;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carrusel-boton-ca2:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+}
+
+.carrusel-boton-ca2.izquierda {
+  left: 0;
+  background-color: #5d3e38;
+}
+
+.carrusel-boton-ca2.derecha {
+  right: 0;
+  background-color: #5d3e38;
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 576px) {
+  .carrusel-item-ca2 {
+    flex: 0 0 80%;
+  }
+}
 
 
 
@@ -753,14 +935,7 @@ aunque este en amarillo, funciona igual
 
 
 
-/* Asegurar que el carrusel esté por debajo */
-.carousel,
-.carousel-inner,
-.carousel-item,
-.carousel-control-prev,
-.carousel-control-next {
-  z-index: 1;
-}
+
 
 .banner {
   z-index: 1000;

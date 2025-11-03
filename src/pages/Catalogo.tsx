@@ -1,51 +1,43 @@
 import { useState, useEffect } from "react"
-import { Link } from "react-router-dom"
-import { productos, type Producto } from "../data/productos"
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from "react-router-dom"
+import { productos } from "../data/productos"
 
 export const Catalogo = () => {
-    const { search } = useLocation();
-    const params = new URLSearchParams(search);
-    const categoria = params.get('categoria') || '';
+    const location = useLocation();
+    const categoriaDesdeIndex = location.state?.categoria;
 
-    const [productosFiltrados, setProductosFiltrados] = useState<Producto[]>(productos);
     const [busqueda, setBusqueda] = useState('');
-    // inicializa desde el query param si viene
-    const [categoriaSeleccionada, setCategoriaSeleccionada] = useState<string>(() => categoria || 'todos');
+    const [selectedCategory, setSelectedCategory] = useState('todos');
 
-    // si cambia el query param, sincroniza el selector
+    // Obtener categorías únicas dinámicamente
+    const categories = ['todos', ...new Set(productos.map(p => p.categoria))];
+
+    // Si viene una categoría desde Index, aplicarla
     useEffect(() => {
-        setCategoriaSeleccionada(categoria || 'todos');
-    }, [categoria]);
-
-    // Filtrar productos cuando cambia la búsqueda o categoría
-    useEffect(() => {
-        let resultados = productos;
-
-        // Filtrar por categoría
-        if (categoriaSeleccionada !== 'todos') {
-            resultados = resultados.filter(producto =>
-                String(producto.categoria).toLowerCase() === categoriaSeleccionada.toLowerCase()
-            );
+        if (categoriaDesdeIndex) {
+            setSelectedCategory(categoriaDesdeIndex);
         }
+    }, [categoriaDesdeIndex]);
 
-        // Filtrar por búsqueda (busca en título y descripción)
-        if (busqueda.trim() !== '') {
-            resultados = resultados.filter(producto =>
-                producto.titulo.toLowerCase().includes(busqueda.toLowerCase()) ||
-                producto.descripcion.toLowerCase().includes(busqueda.toLowerCase())
-            );
-        }
+    // Filtrar productos
+    const filteredProducts = selectedCategory === 'todos' 
+        ? productos 
+        : productos.filter(p => p.categoria === selectedCategory);
 
-        setProductosFiltrados(resultados);
-    }, [busqueda, categoriaSeleccionada]);
+    // Aplicar búsqueda sobre productos ya filtrados por categoría
+    const productosFiltrados = busqueda.trim() !== ''
+        ? filteredProducts.filter(producto =>
+            producto.titulo.toLowerCase().includes(busqueda.toLowerCase()) ||
+            producto.descripcion.toLowerCase().includes(busqueda.toLowerCase())
+          )
+        : filteredProducts;
 
     const handleBusquedaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setBusqueda(e.target.value);
     };
 
     const handleCategoriaChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        setCategoriaSeleccionada(e.target.value);
+        setSelectedCategory(e.target.value);
     };
 
     return (
@@ -71,18 +63,14 @@ export const Catalogo = () => {
                                 <select 
                                     id="categorias" 
                                     className="form-select"
-                                    value={categoriaSeleccionada}
+                                    value={selectedCategory}
                                     onChange={handleCategoriaChange}
                                 >
-                                    <option value="todos">Todas las categorias</option>
-                                    <option value="Tortas Cuadradas">Tortas Cuadradas</option>
-                                    <option value="Tortas Circulares">Tortas Circulares</option>
-                                    <option value="Postres Individuales">Postres Individuales</option>
-                                    <option value="Productos sin Azúcar">Productos sin Azúcar</option>
-                                    <option value="Pastelería Tradicional">Pastelería Tradicional</option>
-                                    <option value="Productos Sin Gluten">Productos Sin Gluten</option>
-                                    <option value="Productos Veganos">Productos Veganos</option>
-                                    <option value="Tortas Especiales">Tortas Especiales</option>
+                                    {categories.map((cat) => (
+                                        <option key={cat} value={cat}>
+                                            {cat === 'todos' ? 'Todas las categorías' : cat}
+                                        </option>
+                                    ))}
                                 </select>
                             </div>
                         </div>
