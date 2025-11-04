@@ -1,6 +1,12 @@
+import { Link } from 'react-router-dom';
 import logo from '../assets/img/logo.png'
+import { BtnCarrito } from './BtnCarrito';
+import { BtnPerfil } from './BtnPerfil';
 
 export const NavBar = () => {
+
+    
+
     return (
         <>
             <div className="banner p-1 p-lg-2 px-md-3">
@@ -8,19 +14,19 @@ export const NavBar = () => {
                     <div className="d-flex align-items-center gap-4">
                         <div className="iconTitle">
                             <span className="d-flex align-items-center">
-                                <a href="/"><img id="logoMain" src={logo} alt="logo" /></a>
+                                <Link to="/"><img id="logoMain" src={logo} alt="logo" /></Link>
                             </span>
                         </div>
                         <div className="divNav">
                             <nav className="navbar navbar-expand-lg">
                                 <div className="container-fluid">
-                                    <a className="navbar-brand tPrin" href="/">Pasteleria Mil Sabores</a>
-                                    <button 
-                                        className="navbar-toggler btn-dark" 
-                                        type="button" 
-                                        data-bs-toggle="collapse" 
-                                        data-bs-target="#navbarNav" 
-                                        aria-controls="navbarNav" 
+                                    <Link className="navbar-brand tPrin" to="/">Pasteleria Mil Sabores</Link>
+                                    <button
+                                        className="navbar-toggler btn-dark"
+                                        type="button"
+                                        data-bs-toggle="collapse"
+                                        data-bs-target="#navbarNav"
+                                        aria-controls="navbarNav"
                                         aria-expanded="false"
                                         aria-label="Toggle navigation"
                                     >
@@ -29,16 +35,16 @@ export const NavBar = () => {
                                     <div className="collapse navbar-collapse px-3" id="navbarNav">
                                         <ul className="navbar-nav">
                                             <li className="nav-item">
-                                                <a className="nav-link tPrin" href="/catalogo">Catalogo</a>
+                                                <Link className="nav-link tPrin" to="/catalogo">Catalogo</Link>
                                             </li>
                                             <li className="nav-item">
-                                                <a className="nav-link tPrin" href="/contacto">Contacto</a>
+                                                <Link className="nav-link tPrin" to="/contacto">Contacto</Link>
                                             </li>
                                             <li className="nav-item">
-                                                <a className="nav-link tPrin" href="/comunidad">Comunidad</a>
+                                                <Link className="nav-link tPrin" to="/comunidad">Comunidad</Link>
                                             </li>
                                             <li className="nav-item">
-                                                <a className="nav-link tPrin" href="/nosotros">Nosotros</a>
+                                                <Link className="nav-link tPrin" to="/nosotros">Nosotros</Link>
                                             </li>
                                         </ul>
                                     </div>
@@ -46,23 +52,12 @@ export const NavBar = () => {
                             </nav>
                         </div>
                     </div>
+
+                    {/* ----------------------- BOTONES DERECHA ----------------------- */}
                     <nav id='btnDer' className="navbar nav-offcanvas btnPerfil me-2 my-2">
-                        <div className="container-fluid">
-                            <button id="btnPerfil" className="navbar-toggler btn-dark" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                                <i className="bi bi-person-circle"></i>
-                            </button>
-                            <div className="offcanvas offcanvas-end" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                                <div className="offcanvas-header">
-                                    <h5 className="offcanvas-title tPrin" id="offcanvasNavbarLabel">Mi Cuenta</h5>
-                                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                </div>
-                                <div className="offcanvas-body">
-                                    <div className='row gap-3 m-5'>
-                                        <a className='btn btn-secondary  col-12' href='/login'>Iniciar Sesión</a>
-                                        <a className='btn btn-secondary  col-12' href='/registro'>Registrarse</a>
-                                    </div>
-                                </div>
-                            </div>
+                        <div className="container-fluid d-flex align-items-center gap-3">
+                            <BtnCarrito />
+                            <BtnPerfil />
                         </div>
                     </nav>
                 </div>

@@ -8,6 +8,7 @@ import { Nosotros } from "./pages/Nosotros"
 import { Login } from "./pages/Login"
 import { DetalleProd } from "./pages/DetalleProd"
 import { Registro } from "./pages/Registro"
+import { Carrito } from "./pages/Carrito"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/registro" element={<Registro/>} />
         <Route path="/detalleproducto/:id" element={<DetalleProd />} />
+        <Route path="/carrito" element={<Carrito />} />
       </Route>
     </Routes>
   )

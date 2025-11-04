@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export const Registro = () => {
   return (
     <>
@@ -44,7 +46,7 @@ export const Registro = () => {
                                 </div>
                             </div>
                             <div className="container d-flex justify-content-center gap-2 mt-4">
-                                <a id="btnLogin" href="/login" className="btnAcc btn btn-dark">Ir al login</a>
+                                <Link id="btnLogin" to="/login" className="btnAcc btn btn-dark">Ir al login</Link>
                                 <button id="btnLogin" type="submit" className="btnAcc btn btn-dark">Crear cuenta</button>
                             </div>
                         </form>

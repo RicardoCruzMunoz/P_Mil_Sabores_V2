@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export const Login = () => {
   return (
     <>
@@ -23,7 +25,7 @@ export const Login = () => {
                         <button type="submit" className="btnAcc btn btn-dark">Iniciar Sesión</button>
                     </div>
                     <div className="container d-flex justify-content-center mt-2">
-                        <h6 className="tPrin">¿No tiene cuenta? <a href="/registro">Regístrese</a></h6>
+                        <h6 className="tPrin">¿No tiene cuenta? <Link to="/registro">Regístrese</Link></h6>
                     </div>
                 </div>
             </div>
