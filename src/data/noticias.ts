@@ -18,7 +18,14 @@ export const noticias: Noticia[] = [
         id: "N2",
         titulo: "Kyochi abre su local más grande en Chile",
         resumen: "La cadena de comida coreana, inauguró su local más grande en Chile: ¿Dónde queda?",
-        imagen: "src/assets/img/comunidad/NoticiaKoyshi.avif",
+        imagen: "src/assets/img/comunidad/NoticiaKoyshi.jpg",
         link: "https://www.latercera.com/tendencias/noticia/koychi-la-cadena-de-comida-coreana-inauguro-su-local-mas-grande-en-chile-donde-queda/"
+    },
+    {
+        id: "N?",
+        titulo: "Próximamente",
+        resumen: "Estamos buscando las mejores noticias para ti",
+        imagen: "src/assets/img/comunidad/Prox.gif",
+        link: ""
     }
 ]

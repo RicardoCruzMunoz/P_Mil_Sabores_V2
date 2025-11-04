@@ -7,7 +7,7 @@ export const Comunidad = () => {
     <>
       <main>
         <div className="cuadroPresComunidad container">
-          <div id="tComunidad" className="cuadroComunidad divPrin p-5 my-5 mx-5">
+          <div id="tComunidad" className="cuadroComunidad divPrin p-4 my-4 mx-4">
             <h3 className="tPrin">Nuestra comunidad</h3>
             <p className="tPrin">Bienvenidos a la comunidad, un espacio para compartir noticias, recetas, consejos y experiencias que nos mantienen conectados e inspirados.</p>
           </div>
@@ -25,7 +25,9 @@ export const Comunidad = () => {
                     <div className="tPrinTitle">{n.titulo}</div>
                     <div className="tTer">{n.resumen}</div>
                     <img src={n.imagen} alt="Vista previa" width="200" />
-                    <a href={n.link}><button className="btn btn-dark">Ver noticia</button></a>
+                    {n.link !== "" &&(
+                      <a href={n.link}><button className="btn btn-dark">Ver noticia</button></a>
+                    )}
                   </div>
                   <br />
                 </>
@@ -44,7 +46,10 @@ export const Comunidad = () => {
                     <div className="tPrinTitle">{r.titulo}</div>
                     <div className="tTer">{r.subtitulo}</div>
                     <img src={r.imagen} alt="Vista Previa" width="360" />
-                    <a href={r.link}><button className="btn btn-dark">Ver Receta</button></a>
+                    {r.link !== "" &&(
+                      <a href={r.link}><button className="btn btn-dark">Ver Receta</button></a>
+
+                    )}
                   </div>
                   <br />
                 </>

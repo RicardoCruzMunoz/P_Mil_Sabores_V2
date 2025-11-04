@@ -19,5 +19,12 @@ export const recetas: Receta[] = [
         subtitulo: "Torre formada por profiteroles rellenos de crema y bañados en caramelo",
         imagen: "src/assets/img/comunidad/RecetaCroquembouche.webp",
         link: "https://www.bonviveur.es/recetas/croquembouche"
+    },
+    {
+        id: "R?",
+        titulo: "Proximamente",
+        subtitulo: "Buscando las recetas más deliciosas para ti",
+        imagen: "src/assets/img/comunidad/Prox.gif",
+        link: ""
     }
 ]
