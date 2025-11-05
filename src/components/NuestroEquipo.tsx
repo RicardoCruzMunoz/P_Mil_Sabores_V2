@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { equipo } from '../data/equipo';
 
 export default function NuestroEquipo() {
-    // 2. Crea el estado 'verMas', igual que en NuestraHistoria
     const [verMas, setVerMas] = useState(false);
 
     const equipoAMostrar = verMas ? equipo : equipo.slice(0, 1);
@@ -14,14 +13,14 @@ export default function NuestroEquipo() {
 
                 {equipoAMostrar.map((miembro) => (
                     <div className="tPrin" key={miembro.id}>
-                        <h4 className="TPrin">
+                        <h4 className="tPrin">
                             <strong>{miembro.nombre}</strong>
                         </h4>
-                        <h5 className="TPrin" >{miembro.rol}</h5>
-                        <p className="TPrin">{miembro.descripcion}</p>
+                        <h5 className="tPrin" >{miembro.rol}</h5>
+                        <p className="tPrin">{miembro.descripcion}</p>
                     </div>
                 ))}
-                <img src="src/assets/img/nosotrosImg/Equipo.png" alt="Vista previa" width={350}/>
+                <img src="src/assets/img/nosotrosImg/Equipo.png" alt="Equipo.png" width={350}/>
             </div>
             <button
                     onClick={() => setVerMas(!verMas)}
