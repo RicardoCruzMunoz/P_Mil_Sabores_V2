@@ -1,8 +1,15 @@
-import { useState, useEffect } from "react"
-import { Link, useLocation } from "react-router-dom"
-import { productos } from "../data/productos"
+import { useEffect, useState } from "react";
+import type { Producto } from "../interfaces/Producto";
+import { getProducto } from "../api/producto";
+import { Link, useLocation } from "react-router-dom";
 
 export const Catalogo = () => {
+    const [productos, setProductos] = useState<Producto[]>([]);
+
+    useEffect(() => {
+        getProducto().then(setProductos).catch(console.error);
+    }, []);
+
     const location = useLocation();
     const categoriaDesdeIndex = location.state?.categoria;
 
@@ -27,7 +34,7 @@ export const Catalogo = () => {
     // Aplicar búsqueda sobre productos ya filtrados por categoría
     const productosFiltrados = busqueda.trim() !== ''
         ? filteredProducts.filter(producto =>
-            producto.titulo.toLowerCase().includes(busqueda.toLowerCase()) ||
+            producto.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
             producto.descripcion.toLowerCase().includes(busqueda.toLowerCase())
           )
         : filteredProducts;
@@ -39,9 +46,8 @@ export const Catalogo = () => {
     const handleCategoriaChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedCategory(e.target.value);
     };
-
-    return (
-        <>
+  return (
+    <>
             <main className="container">
                 <header className="my-3">
                     <div className="busqFiltro">
@@ -83,11 +89,11 @@ export const Catalogo = () => {
                             <div key={p.id} className="col-lg-4 col-md-6 col-12">
                                 <article className="card h-100 bg-dark text-light border-secondary-subtle">
                                     <div className="ratio ratio-16x9">
-                                        <img src={p.imagen} className="card-img-top object-fit-contain" alt={p.titulo}/>
+                                        <img src={p.imagenUrl} className="card-img-top object-fit-contain" alt={p.nombre}/>
                                     </div>
                                     <div className="card-body">
                                         <span className="badge rounded-pill text-bg-secondary mb-2">{p.categoria}</span>
-                                        <h3 className="h4 card-title tTer">{p.titulo}</h3>
+                                        <h3 className="h4 card-title tTer">{p.nombre}</h3>
                                         <p className="card-text small tTer">{p.descripcion}</p>
                                     </div>
                                     <div className="card-footer d-flex align-items-center justify-content-between">
@@ -107,5 +113,5 @@ export const Catalogo = () => {
                 </section>
             </main>
         </>
-    )
+  )
 }
