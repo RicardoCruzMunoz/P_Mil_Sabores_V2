@@ -40,13 +40,13 @@ export const Carrito = () => {
 
             {/* Productos */}
             {cart.map((item) => (
-              <div key={item.id}>
+              <div key={item.upc}>
                 <div className="row align-items-center px-3 my-3">
 
                   {/* Nombre */}
                   <div className="tTer col-12 col-md-4 mb-2 mb-md-0">
                     <strong className="d-md-none">Nombre: </strong>
-                    {item.titulo}
+                    {item.nombre}
                   </div>
 
                   {/* Precio unitario */}
@@ -72,21 +72,21 @@ export const Carrito = () => {
 
                     <button
                       className="btn btn-outline-light btn-sm rounded-circle"
-                      onClick={() => updateQuantity(item.id, item.cantidad - 1)}
+                      onClick={() => updateQuantity(item.upc, item.cantidad - 1)}
                     >
                       <i className="bi bi-dash"></i>
                     </button>
 
                     <button
                       className="btn btn-outline-light btn-sm rounded-circle"
-                      onClick={() => updateQuantity(item.id, item.cantidad + 1)}
+                      onClick={() => updateQuantity(item.upc, item.cantidad + 1)}
                     >
                       <i className="bi bi-plus"></i>
                     </button>
 
                     <button
                       className="btn btn-outline-light btn-sm ms-2"
-                      onClick={() => removeFromCart(item.id)}
+                      onClick={() => removeFromCart(item.upc)}
                     >
                       <i className="bi bi-trash"></i>
                     </button>

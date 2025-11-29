@@ -1,28 +1,34 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 interface Props {
-  id: string;
-  titulo: string;
+  upc: string;
+  nombre: string;
   precio: number;
-  imagen: string;
+  imagenUrl: string;
 }
 
 export const CardProducto: React.FC<Props> = ({
-  id,
-  titulo,
+  upc,
+  nombre,
   precio,
-  imagen
+  imagenUrl
 }) => {
   return (
     <div className="tarjeta-ca2">
       <div className="tarjeta-imagen-ca2">
-        <img src={imagen} alt={titulo}/>
+        <img src={imagenUrl} alt={nombre} />
       </div>
       <div className="tarjeta-cuerpo-ca2">
-        <h4 className="tarjeta-titulo-ca2 tTer">{titulo}</h4>
+        <h4 className="tarjeta-titulo-ca2 tTer">{nombre}</h4>
         <h4 className="tarjeta-texto-ca2 tTer">${precio}</h4>
-        <Link className="btn btn-outline-light btn-sm tSec" to={`/detalleproducto/${id}`}>Ver Más</Link>
+
+        <Link
+          className="btn btn-outline-light btn-sm tSec"
+          to={`/detalleproducto/${upc}`}
+        >
+          Ver Más
+        </Link>
       </div>
     </div>
   );

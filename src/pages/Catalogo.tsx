@@ -86,7 +86,7 @@ export const Catalogo = () => {
                 <section className="row g-4">
                     {productosFiltrados.length > 0 ? (
                         productosFiltrados.map((p) => (
-                            <div key={p.id} className="col-lg-4 col-md-6 col-12">
+                            <div key={p.upc} className="col-lg-4 col-md-6 col-12">
                                 <article className="card h-100 bg-dark text-light border-secondary-subtle">
                                     <div className="ratio ratio-16x9">
                                         <img src={p.imagenUrl} className="card-img-top object-fit-contain" alt={p.nombre}/>
@@ -98,7 +98,7 @@ export const Catalogo = () => {
                                     </div>
                                     <div className="card-footer d-flex align-items-center justify-content-between">
                                         <h5 className="fw-bold tTer">${p.precio.toLocaleString('es-CL')}</h5>
-                                        <Link className="btn btn-outline-light btn-sm tSec" to={`/detalleproducto/${p.id}`}>Ver detalle</Link>
+                                        <Link className="btn btn-outline-light btn-sm tSec" to={`/detalleproducto/${p.upc}`}>Ver detalle</Link>
                                     </div>
                                 </article>
                             </div>

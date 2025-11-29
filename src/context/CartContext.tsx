@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
-import type { Producto } from "../data/productos";
+import type { Producto } from "../interfaces/Producto";
 
 export type CartItem = Producto & {
   cantidad: number;
@@ -8,8 +8,8 @@ export type CartItem = Producto & {
 type CartContextType = {
   cart: CartItem[];
   addToCart: (item: CartItem) => void;
-  removeFromCart: (id: string) => void;
-  updateQuantity: (id: string, qty: number) => void;
+  removeFromCart: (upc: string) => void;
+  updateQuantity: (upc: string, qty: number) => void;
   clearCart: () => void;
 };
 
@@ -18,27 +18,30 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
 
+  // Agregar producto al carrito usando UPC
   const addToCart = (item: CartItem) => {
     setCart(prev => {
-      const existe = prev.find(p => p.id === item.id);
+      const existe = prev.find(p => p.upc === item.upc);
       if (existe) {
         return prev.map(p =>
-          p.id === item.id ? { ...p, cantidad: p.cantidad + item.cantidad } : p
+          p.upc === item.upc ? { ...p, cantidad: p.cantidad + item.cantidad } : p
         );
       }
       return [...prev, item];
     });
   };
 
-  const removeFromCart = (id: string) => {
-    setCart(prev => prev.filter(item => item.id !== id));
+  // Remover usando UPC
+  const removeFromCart = (upc: string) => {
+    setCart(prev => prev.filter(item => item.upc !== upc));
   };
 
-  const updateQuantity = (id: string, qty: number) => {
+  // Actualizar cantidad usando UPC
+  const updateQuantity = (upc: string, qty: number) => {
     setCart(prev =>
       prev
         .map(item =>
-          item.id === id
+          item.upc === upc
             ? { ...item, cantidad: Math.max(1, qty) }
             : item
         )
