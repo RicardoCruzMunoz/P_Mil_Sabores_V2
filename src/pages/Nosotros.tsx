@@ -26,7 +26,7 @@ export const Nosotros = () => {
             <p className="tPrin">Ofrecer una experiencia dulce y memorable a nuestros clientes, proporcionando tortas y productos
                                 de repostería de alta calidad para todas las ocasiones, mientras celebramos nuestras raíces
                                 históricas y fomentamos la creatividad en la repostería.</p>
-            <img src="src/assets/img/nosotrosImg/Mision2.png" alt="Vista previa"  width={350}/>
+            <img src="public/img/nosotrosImg/Mision2.png" alt="Vista previa"  width={350}/>
           </div>
         </div>
         {/* Vision */}
@@ -36,7 +36,7 @@ export const Nosotros = () => {
             <p className="tPrin">Convertirnos en la tienda online líder de productos de repostería en Chile, conocida por nuestra
                             innovación, calidad y el impacto positivo en la comunidad, especialmente en la formación de nuevos
                             talentos en gastronomía.</p>
-            <img src="src/assets/img/nosotrosImg/Visión.png" alt="Vista previa" width={350}/>
+            <img src="public/img/nosotrosImg/Visión.png" alt="Vista previa" width={350}/>
           </div>
         </div>
       </div>

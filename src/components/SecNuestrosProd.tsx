@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import fondoCard from '../assets/img/bg_card_index/fondo1.png';
-import fondoCard2 from '../assets/img/bg_card_index/fondo2.png';
 import { useNavigate } from 'react-router-dom';
 import { getProducto } from "../api/producto";
 import type { Producto } from "../interfaces/Producto";
+import { base_url_img } from "../api/config";
 
 export const SecNuestrosProd = () => {
 
@@ -27,7 +26,12 @@ export const SecNuestrosProd = () => {
     navigate('/catalogo', { state: { categoria } });
   };
 
-  // Buscar productos por categoría
+  const getImagenSrc = (ruta: string | undefined) => {
+    if (!ruta) return "";
+    if (ruta.startsWith("http")) return ruta;
+    return `${base_url_img}/img/${ruta}`;
+  };
+
   const productoSinAzucar = productos.find(p => p.categoria === "Productos sin Azúcar");
   const postreIndividual = productos.find(p => p.categoria === "Postres Individuales");
 
@@ -35,7 +39,7 @@ export const SecNuestrosProd = () => {
     <>
       <div className="container-fluid px-4 mt-4">
         <div className='text-center mb-4 bloqueTexto p-3'>
-          <h2 className="tPrin">Nuestros Productos</h2>
+          <h2 className="tTer">Nuestros Productos</h2>
         </div>
 
         <div className='row gx-3 gy-3'>
@@ -45,7 +49,8 @@ export const SecNuestrosProd = () => {
             <div
               className="card mb-3 cuadroIndex"
               style={{
-                backgroundImage: `url(${fondoCard})`,
+                // CORRECCIÓN: Ruta directa como string, sin import
+                backgroundImage: `url('/img/bg_card_index/fondo1.png')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center bottom',
                 backgroundRepeat: 'no-repeat'
@@ -54,7 +59,7 @@ export const SecNuestrosProd = () => {
               <div className="row g-0">
                 <div className="col-4 d-flex align-items-center justify-content-center p-2">
                   <img
-                    src={productoSinAzucar?.imagenUrl ?? ""}
+                    src={getImagenSrc(productoSinAzucar?.imagenUrl)}
                     className="img-fluid rounded-start producto-superpuesto"
                     style={{ maxWidth: '120px', height: 'auto', objectFit: 'contain' }}
                     alt="Productos Sin Azúcar"
@@ -87,7 +92,8 @@ export const SecNuestrosProd = () => {
             <div
               className="card mb-3 cuadroIndex"
               style={{
-                backgroundImage: `url(${fondoCard2})`,
+                // CORRECCIÓN: Ruta directa como string
+                backgroundImage: `url('/img/bg_card_index/fondo2.png')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center bottom',
                 backgroundRepeat: 'no-repeat'
@@ -96,7 +102,7 @@ export const SecNuestrosProd = () => {
               <div className="row g-0">
                 <div className="col-4 d-flex align-items-center justify-content-center p-2">
                   <img
-                    src={postreIndividual?.imagenUrl ?? ""}
+                    src={getImagenSrc(postreIndividual?.imagenUrl)}
                     className="img-fluid rounded-start producto-superpuesto"
                     style={{ maxWidth: '120px', height: 'auto', objectFit: 'contain' }}
                     alt="Postres Individuales"

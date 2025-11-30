@@ -13,6 +13,7 @@ import Forbidden from "./pages/Forbidden"
 import AdminRoute from "./components/AdminRoute"
 import Admin from "./pages/Admin"
 import Perfil from "./pages/Perfil"
+import GuestRoute from "./components/GuestRoute"
 
 function App() {
   return (
@@ -26,6 +27,22 @@ function App() {
             <AdminRoute>
               <Admin />
             </AdminRoute>
+          }
+        />
+
+        <Route 
+          path="/login" element={
+            <GuestRoute>
+              <Login />
+            </GuestRoute>
+          }
+        />
+
+        <Route
+          path="/registro" element={
+            <GuestRoute>
+              <Registro />
+            </GuestRoute>
           }
         />
 

@@ -18,7 +18,7 @@ export default function NuestraHistoria(){
                         <p key={i} className="tPrin">{p}</p>
                         
                     ))}
-                    <img src="src/assets/img/nosotrosImg/Historia.png" alt="Vista previa" width={350}/>
+                    <img src="public/img/nosotrosImg/Historia.png" alt="Vista previa" width={350}/>
                 </div>
                 
                 <button onClick={() => setVerMas(!verMas)} className="btn btn-dark m-3">

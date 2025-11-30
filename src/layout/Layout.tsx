@@ -6,7 +6,7 @@ export const Layout = () => {
   return (
     <>
         <NavBar />
-        <main style={{ minHeight: "70vh" }}>
+        <main className="main-layout">
             <Outlet />
         </main>
         <Footer />

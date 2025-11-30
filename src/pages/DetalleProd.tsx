@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import type { Producto } from "../interfaces/Producto";
 import { getProductoByUPC } from "../api/producto";
 import { useCart } from "../context/CartContext";
+import { base_url_img } from "../api/config";
 
 export const DetalleProd = () => {
   const { upc } = useParams();
@@ -33,6 +34,12 @@ export const DetalleProd = () => {
     addToCart({ ...producto, cantidad });
   };
 
+  const getImagenSrc = (ruta: string) => {
+    if (!ruta) return "/img/placeholder.png";
+    if (ruta.startsWith("http")) return ruta;
+    return `${base_url_img}/img/${ruta}`;
+  };
+
   if (!producto) {
     return <h2 className="mt-5 text-center">Producto no encontrado</h2>;
   }
@@ -43,7 +50,7 @@ export const DetalleProd = () => {
 
         <div className="col-md-4 imgDetalleP">
           <img
-            src={producto.imagenUrl}
+            src={getImagenSrc(producto.imagenUrl)}
             className="img-fluid rounded-start m-1"
             alt={producto.nombre}
           />
@@ -60,7 +67,7 @@ export const DetalleProd = () => {
             </span>
 
             <div className="cajitaClara p-2">
-              <h2 className="card-text tTer">${producto.precio}</h2>
+              <h2 className="card-text tTer">${producto.precio.toLocaleString('es-CL')}</h2>
               <h5 className="card-text tTer">{producto.descripcion}</h5>
             </div>
           </div>

@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
     <>
-        <footer className="py-3 mt-3">
+        <footer className="py-3">
           <div className="bloqueFooter p-3">
             <h4 className="tPrin">Redes Sociales</h4>
             <div className="gap-3">

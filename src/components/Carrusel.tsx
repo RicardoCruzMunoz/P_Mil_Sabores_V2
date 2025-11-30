@@ -1,15 +1,36 @@
-import Imagen1 from '../assets/img/pasteles/cuadrada_chocolate.jpg'
-import Imagen2 from '../assets/img/comunidad/NoticiaKoyshi.jpg'
-import Imagen3 from '../assets/img/pasteles/especial_cumpleaños.png'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getProducto } from '../api/producto';
+import type { Producto } from '../interfaces/Producto';
+import { base_url_img } from "../api/config";
+
+
 
 export const Carrusel = () => {
+  const [productos, setProductos] = useState<Producto[]>([]);
+
+  useEffect(() => {
+    getProducto().then(setProductos).catch(console.error);
+  }, []);
+
+  const producto1 = productos.find(p => p.nombre === "Torta Cuadrada de Chocolate");
+  const producto3 = productos.find(p => p.nombre === "Torta Especial de Cumpleaños");
+
+  const getImgUrl = (path: string | undefined) => {
+    return path ? `${base_url_img}/img/${path}` : '';
+  };
+
   return (
     <>
         <div id="carruselMain" className="carousel slide carousel-fade">
             <div className="carousel-inner">
+                
                 <div className="carousel-item active">
-                    <img src={Imagen1} className="d-block w-100" alt="Imagen 1"/>
+                    <img 
+                        src={getImgUrl(producto1?.imagenUrl)} 
+                        className="d-block w-100" 
+                        alt={producto1?.nombre || "Cargando..."}
+                    />
                     <div className="carousel-caption-wrapper">
                         <div className="carousel-caption">
                             <h3 className="tSec">Deliciosos Pasteles Artesanales</h3>
@@ -20,8 +41,9 @@ export const Carrusel = () => {
                         </div>
                     </div>
                 </div>
+
                 <div className="carousel-item">
-                    <img src={Imagen2} className="d-block w-100" alt="Imagen 2"/>
+                    <img src="/img/comunidad/NoticiaKoyshi.jpg" className="d-block w-100" alt="Noticia Comunidad"/>
                     <div className="carousel-caption-wrapper reverse">
                         <div className="carousel-caption">
                             <h3 className="tSec">Revise las Ultimas Novedades</h3>
@@ -32,8 +54,13 @@ export const Carrusel = () => {
                         </div>
                     </div>
                 </div>
+
                 <div className="carousel-item">
-                    <img src={Imagen3} className="d-block w-100" alt="Imagen 3"/>
+                    <img 
+                        src={getImgUrl(producto3?.imagenUrl)} 
+                        className="d-block w-100" 
+                        alt={producto3?.nombre || "Cargando..."}
+                    />
                     <div className="carousel-caption-wrapper">
                         <div className="carousel-caption">
                             <h3 className="tSec">Pedidos Personalizados</h3>
@@ -44,6 +71,7 @@ export const Carrusel = () => {
                         </div>
                     </div>
                 </div>
+
             </div>
             <button className="carousel-control-prev" type="button" data-bs-target="#carruselMain" data-bs-slide="prev">
                 <i className="bi bi-caret-left-fill" aria-hidden="true"></i>

@@ -20,7 +20,7 @@ export default function NuestroEquipo() {
                         <p className="tPrin">{miembro.descripcion}</p>
                     </div>
                 ))}
-                <img src="src/assets/img/nosotrosImg/Equipo.png" alt="Equipo.png" width={350}/>
+                <img src="public/img/nosotrosImg/Equipo.png" alt="Equipo.png" width={350}/>
             </div>
             <button
                     onClick={() => setVerMas(!verMas)}

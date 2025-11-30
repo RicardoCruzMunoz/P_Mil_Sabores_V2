@@ -1,16 +1,16 @@
 import React, { useRef } from "react";
 import { CardProducto } from "./CardProducto";
 import type { Producto } from "../interfaces/Producto";
+import { base_url_img } from "../api/config";
 
 interface Props {
   elementos: Producto[];
-  ids?: string[]; // UPC
+  ids?: string[];
 }
 
 export const CarruselDest: React.FC<Props> = ({ elementos, ids }) => {
   const contenedor = useRef<HTMLDivElement | null>(null);
 
-  // Filtrar por UPC, NO por id
   const productosFiltrados = ids
     ? elementos.filter((p) => ids.includes(p.upc))
     : elementos;
@@ -25,6 +25,12 @@ export const CarruselDest: React.FC<Props> = ({ elementos, ids }) => {
     if (!contenedor.current) return;
     const ancho = contenedor.current.clientWidth / 3;
     contenedor.current.scrollLeft -= ancho;
+  };
+
+  const getImagenSrc = (ruta: string) => {
+    if (!ruta) return "/img/placeholder.png";
+    if (ruta.startsWith("http")) return ruta;
+    return `${base_url_img}/img/${ruta}`;
   };
 
   return (
@@ -45,7 +51,7 @@ export const CarruselDest: React.FC<Props> = ({ elementos, ids }) => {
                 upc={item.upc}
                 nombre={item.nombre}
                 precio={item.precio}
-                imagenUrl={item.imagenUrl}
+                imagenUrl={getImagenSrc(item.imagenUrl)}
               />
             </div>
           ))}

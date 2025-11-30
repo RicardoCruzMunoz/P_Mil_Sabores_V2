@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import logo from '../assets/img/logo.png'
 import { BtnCarrito } from './BtnCarrito';
 import { BtnPerfil } from './BtnPerfil';
 
@@ -14,7 +13,7 @@ export const NavBar = () => {
                     <div className="d-flex align-items-center gap-4">
                         <div className="iconTitle">
                             <span className="d-flex align-items-center">
-                                <Link to="/"><img id="logoMain" src={logo} alt="logo" /></Link>
+                                <Link to="/"><img id='logoMain' src="/img/logo.png" alt="Logo" /></Link>
                             </span>
                         </div>
                         <div className="divNav">
