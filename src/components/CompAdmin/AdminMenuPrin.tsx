@@ -58,8 +58,8 @@ export const AdminMenuPrin = () => {
                 <div className="card text-white bg-dark border-secondary shadow-sm h-100">
                     <div className="card-body p-3 d-flex justify-content-between align-items-center">
                         <div>
-                            <h6 className="card-title text-white-50 text-uppercase m-0" style={{fontSize: '0.8rem'}}>Productos</h6>
-                            <h3 className="fw-bold mb-0">{loading ? "-" : productos.length}</h3>
+                            <h6 className="card-title text-dark-50 text-uppercase m-0" style={{fontSize: '0.8rem'}}>Productos</h6>
+                            <h3 className="fw-bold text-dark-50 mb-0">{loading ? "-" : productos.length}</h3>
                         </div>
                         <div className="bg-secondary bg-opacity-25 p-2 rounded">
                             <i className="bi bi-box-seam fs-4 text-white"></i>
@@ -186,11 +186,24 @@ export const AdminMenuPrin = () => {
                                             <tr key={u.id}>
                                                 <td className="ps-3 text-muted small">#{u.id}</td>
                                                 <td>
-                                                    <div className="d-flex align-items-center">
-                                                        <div className="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center me-2" 
-                                                             style={{width: '25px', height: '25px', fontSize: '0.7rem'}}>
+                                                    <div className="d-flex align-items-center">{
+                                                        u.imagenPerfil ? (
+                                                            <div className="me-2">
+                                                            <img
+                                                                className="rounded-circle"
+                                                                src={`http://localhost:8080${u.imagenPerfil}`}
+                                                                alt="Foto perfil"
+                                                                style={{ width: '35px', height: '35px', objectFit: 'cover' }}
+                                                            />
+                                                            </div>
+                                                        ) : (
+                                                            <div
+                                                            className="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center me-3"
+                                                            style={{ width: '35px', height: '35px', fontSize: '0.9rem' }}
+                                                            >
                                                             {u.nombre.charAt(0).toUpperCase()}
-                                                        </div>
+                                                            </div>
+                                                        )}
                                                         <div className="d-flex flex-column">
                                                             <span className="fw-medium">{u.nombre}</span>
                                                             <span className="text-muted small" style={{fontSize: '0.7rem'}}>{u.correo}</span>

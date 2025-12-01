@@ -6,4 +6,5 @@ export interface Usuario {
     fechaNacimiento: string;
     codigo?: string;
     tipoUsuario: string;
+    imagenPerfil?: string | null;
 }

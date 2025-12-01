@@ -8,6 +8,9 @@ function Perfil() {
     const [loading, setLoading] = useState(false);
     const [modoEdicion, setModoEdicion] = useState(false);
     const [cambiarPassword, setCambiarPassword] = useState(false);
+    const [imagenFile, setImagenFile] = useState<File | null>(null);
+const [preview, setPreview] = useState<string | null>(null);
+
     
     const [form, setForm] = useState({
         nombre: "",
@@ -169,6 +172,58 @@ function Perfil() {
         }
     };
 
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            setImagenFile(file);
+            setPreview(URL.createObjectURL(file)); // Previsualización
+        }
+    };
+
+    const handleSubirImagen = async () => {
+        if (!imagenFile) {
+            alert("Selecciona una imagen primero");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append("imagen", imagenFile);
+
+        try {
+            const response = await api.post(
+                `/usuarios/${usuario.id}/imagenPerfil`,
+                formData,
+                { headers: { "Content-Type": "multipart/form-data" } }
+            );
+
+            const nuevaRuta = response.data;
+
+            // Actualizar localStorage
+            const datosGuardados = JSON.parse(localStorage.getItem("usuario") || "{}");
+            const usuarioActualizado = {
+                ...usuario,
+                imagenPerfil: nuevaRuta
+            };
+
+            localStorage.setItem("usuario", JSON.stringify({
+                usuario: usuarioActualizado,
+                token: datosGuardados.token
+            }));
+
+            setUsuario(usuarioActualizado);
+            setPreview(null);
+            setImagenFile(null);
+
+            alert("Imagen actualizada correctamente");
+
+        } catch (error) {
+            console.error(error);
+            alert("Error al subir la imagen");
+        }
+    };
+
+
+
     const handleCancelar = () => {
         setModoEdicion(false);
         setCambiarPassword(false);
@@ -212,16 +267,39 @@ function Perfil() {
                             {!modoEdicion ? (
                                 <>
                                     {/* Información del usuario - SOLO LECTURA */}
+                                    <h5 className="border-bottom pb-2 tTer">Información Personal</h5>
                                     <div className="mb-4">
-                                        <h5 className="border-bottom pb-2 tTer">Información Personal</h5>
-                                        
                                         <div className="row">
-                                            <div className="mb-3 col-md-6">
+                                        <div className="text-center col-lg-4 mb-4">
+                                            <div className="d-flex justify-content-center">
+                                            {usuario?.usuario?.imagenPerfil || usuario?.imagenPerfil ? (
+                                                <img
+                                                src={
+                                                    usuario?.usuario?.imagenPerfil
+                                                    ? `http://localhost:8080${usuario.usuario.imagenPerfil}`
+                                                    : `http://localhost:8080${usuario.imagenPerfil}`
+                                                }
+                                                alt="Foto de perfil"
+                                                className="fotoBtnPerfil mb-2"
+                                                />
+                                            ) : (
+                                                <div
+                                                className="fotoPerfil rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center mb-2"
+                                                >
+                                                {usuario?.usuario?.nombre?.charAt(0).toUpperCase() ||
+                                                    usuario?.nombre?.charAt(0).toUpperCase() ||
+                                                    "?"}
+                                                </div>
+                                            )}
+                                            </div>
+                                        </div>
+                                        
+                                            <div className="mb-3 col-lg-4 col-md-6">
                                                 <label className="form-label fw-bold tTer">Nombre Completo</label>
                                                 <p className="form-control-plaintext tTer">{usuario.nombre}</p>
                                             </div>
 
-                                            <div className="mb-3 col-md-6">
+                                            <div className="mb-3 col-lg-4 col-md-6">
                                                 <label className="form-label fw-bold tTer">Tipo de Usuario</label>
                                                 <p className="form-control-plaintext">
                                                     <span className={`badge ${usuario.tipoUsuario === 'Admin' ? 'bg-warning text-dark' : 'bg-primary'}`}>
@@ -230,19 +308,20 @@ function Perfil() {
                                                 </p>
                                             </div>
                                         </div>
+                                        <div className="row">
+                                            <div className="mb-3 col-lg-6">
+                                                <label className="form-label fw-bold tTer">Correo Electrónico</label>
+                                                <p className="form-control-plaintext tTer">{usuario.correo}</p>
+                                            </div>
 
-                                        <div className="mb-3">
-                                            <label className="form-label fw-bold tTer">Correo Electrónico</label>
-                                            <p className="form-control-plaintext tTer">{usuario.correo}</p>
-                                        </div>
-
-                                        <div className="mb-3">
-                                            <label className="form-label fw-bold tTer">Fecha de Nacimiento</label>
-                                            <p className="form-control-plaintext">
-                                                {usuario.fechaNacimiento 
-                                                    ? new Date(usuario.fechaNacimiento).toLocaleDateString('es-CL')
-                                                    : "No especificado"}
-                                            </p>
+                                            <div className="mb-3 col-lg-6">
+                                                <label className="form-label fw-bold tTer">Fecha de Nacimiento</label>
+                                                <p className="form-control-plaintext">
+                                                    {usuario.fechaNacimiento 
+                                                        ? new Date(usuario.fechaNacimiento).toLocaleDateString('es-CL')
+                                                        : "No especificado"}
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -311,6 +390,45 @@ function Perfil() {
                                             />
                                         </div>
                                     </div>
+                                    
+                                    <div className="mb-4">
+                                        <h5 className="border-bottom pb-2 tTer">Imagen de Perfil</h5>
+
+                                        <div className="text-center mb-3">
+                                            <img
+                                                src={
+                                                    preview
+                                                        ? preview
+                                                        : usuario.imagenPerfil
+                                                            ? `http://localhost:8080${usuario.imagenPerfil}`
+                                                            : "https://via.placeholder.com/150?text=Sin+Imagen"
+                                                }
+                                                alt="preview"
+                                                className="rounded-circle"
+                                                width="150"
+                                                height="150"
+                                                style={{ objectFit: "cover" }}
+                                            />
+                                        </div>
+
+                                        <input
+                                            type="file"
+                                            accept="image/*"
+                                            className="form-control"
+                                            onChange={handleImageChange}
+                                        />
+
+                                        {imagenFile && (
+                                            <button
+                                                type="button"
+                                                className="btn btn-dark mt-2"
+                                                onClick={handleSubirImagen}
+                                            >
+                                                Subir Imagen
+                                            </button>
+                                        )}
+                                    </div>
+
 
                                     {/* Cambiar contraseña */}
                                     <div className="mb-4">

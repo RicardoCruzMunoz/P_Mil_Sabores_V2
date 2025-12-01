@@ -123,6 +123,19 @@ body {
     height: 50px;
  }
 
+.fotoPerfil {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+.fotoBtnPerfil {
+    height: 200px;
+    width: auto;
+    object-fit: cover;
+    margin: auto;
+    border-radius: 50%;
+}
+
  #btnPerfil {
   border-radius: 50%;
   width: 40px;
@@ -901,6 +914,10 @@ footer a {
 .text-bg-secondary {
     background-color: #5D4037 !important;
     color: #fcf3e3 !important;
+}
+
+.text-dark-50{
+    color: #5d3e38 !important;
 }
 
 .border-secondary-subtle {

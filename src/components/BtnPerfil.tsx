@@ -96,6 +96,30 @@ export const BtnPerfil = () => {
 
           {usuario && (
             <div className='row gap-3 m-5'>
+              <div className="d-flex justify-content-center">
+                {usuario?.usuario?.imagenPerfil || usuario?.imagenPerfil ? (
+                  <img
+                    src={
+                      usuario?.usuario?.imagenPerfil
+                        ? `http://localhost:8080${usuario.usuario.imagenPerfil}`
+                        : `http://localhost:8080${usuario.imagenPerfil}`
+                    }
+                    alt="Foto de perfil"
+                    className="fotoBtnPerfil mb-2"
+                  />
+                ) : (
+                  <div
+                    className="rounded-circle bg-secondary text-white d-flex align-items-center justify-content-center mb-2"
+                    style={{ width: "150px", height: "150px", fontSize: "4rem" }}
+                  >
+                    {usuario?.usuario?.nombre?.charAt(0).toUpperCase() ||
+                      usuario?.nombre?.charAt(0).toUpperCase() ||
+                      "?"}
+                  </div>
+                )}
+              </div>
+
+
               {(usuario.usuario?.tipoUsuario === "Admin" || usuario.tipoUsuario === "Admin") && (
                 <button 
                   className='btn btn-dark col-12' 
