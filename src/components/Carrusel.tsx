@@ -13,12 +13,19 @@ export const Carrusel = () => {
     getProducto().then(setProductos).catch(console.error);
   }, []);
 
-  const producto1 = productos.find(p => p.nombre === "Torta Cuadrada de Chocolate");
-  const producto3 = productos.find(p => p.nombre === "Torta Especial de Cumpleaños");
+  const producto1 = productos.find(p => p.id === 1);
+  const producto3 = productos.find(p => p.id === 3);
 
-  const getImgUrl = (path: string | undefined) => {
-    return path ? `${base_url_img}/img/${path}` : '';
-  };
+  const getImagenSrc = (ruta: string) => {
+    if (!ruta) return "/img/placeholder.png";
+    if (ruta.startsWith("http")) return ruta;
+    
+    const timestamp = Date.now();
+    
+    const subfolder = ruta.toLowerCase().includes('pasteles/') ? 'img' : 'img/pasteles';
+    
+    return `${base_url_img}/${subfolder}/${ruta}?v=${timestamp}`;
+};
 
   return (
     <>
@@ -27,7 +34,7 @@ export const Carrusel = () => {
                 
                 <div className="carousel-item active">
                     <img 
-                        src={getImgUrl(producto1?.imagenUrl)} 
+                        src={getImagenSrc(producto1?.imagenUrl || "")} 
                         className="d-block w-100" 
                         alt={producto1?.nombre || "Cargando..."}
                     />
@@ -57,7 +64,7 @@ export const Carrusel = () => {
 
                 <div className="carousel-item">
                     <img 
-                        src={getImgUrl(producto3?.imagenUrl)} 
+                        src={getImagenSrc(producto3?.imagenUrl || "")} 
                         className="d-block w-100" 
                         alt={producto3?.nombre || "Cargando..."}
                     />

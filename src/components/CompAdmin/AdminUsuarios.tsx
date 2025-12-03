@@ -259,13 +259,13 @@ export const AdminUsuarios = () => {
                         <div className="d-flex justify-content-end gap-2">
                             <button
                                 type="button"
-                                className="btn btn-outline-dark"
+                                className="btn btn-outline-light"
                                 onClick={handleCancelarFormulario}
                             >
                                 Cancelar
                             </button>
 
-                            <button type="submit" className="btn btn-primary" disabled={loading}>
+                            <button type="submit" className="btn btn-outline-light" disabled={loading}>
                                 {editingUser ? "Guardar Cambios" : "Crear Usuario"}
                             </button>
                         </div>

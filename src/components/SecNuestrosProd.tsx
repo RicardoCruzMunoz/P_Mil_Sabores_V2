@@ -26,11 +26,16 @@ export const SecNuestrosProd = () => {
     navigate('/catalogo', { state: { categoria } });
   };
 
-  const getImagenSrc = (ruta: string | undefined) => {
-    if (!ruta) return "";
-    if (ruta.startsWith("http")) return ruta;
-    return `${base_url_img}/img/${ruta}`;
-  };
+  const getImagenSrc = (ruta: string) => {
+      if (!ruta) return "/img/placeholder.png";
+      if (ruta.startsWith("http")) return ruta;
+      
+      const timestamp = Date.now();
+      
+      const subfolder = ruta.toLowerCase().includes('pasteles/') ? 'img' : 'img/pasteles';
+      
+      return `${base_url_img}/${subfolder}/${ruta}?v=${timestamp}`;
+    };
 
   const productoSinAzucar = productos.find(p => p.categoria === "Productos sin Azúcar");
   const postreIndividual = productos.find(p => p.categoria === "Postres Individuales");
@@ -59,7 +64,7 @@ export const SecNuestrosProd = () => {
               <div className="row g-0">
                 <div className="col-4 d-flex align-items-center justify-content-center p-2">
                   <img
-                    src={getImagenSrc(productoSinAzucar?.imagenUrl)}
+                    src={getImagenSrc(productoSinAzucar?.imagenUrl || "")}
                     className="img-fluid rounded-start producto-superpuesto"
                     style={{ maxWidth: '120px', height: 'auto', objectFit: 'contain' }}
                     alt="Productos Sin Azúcar"
@@ -92,7 +97,6 @@ export const SecNuestrosProd = () => {
             <div
               className="card mb-3 cuadroIndex"
               style={{
-                // CORRECCIÓN: Ruta directa como string
                 backgroundImage: `url('/img/bg_card_index/fondo2.png')`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center bottom',
@@ -102,7 +106,7 @@ export const SecNuestrosProd = () => {
               <div className="row g-0">
                 <div className="col-4 d-flex align-items-center justify-content-center p-2">
                   <img
-                    src={getImagenSrc(postreIndividual?.imagenUrl)}
+                    src={getImagenSrc(postreIndividual?.imagenUrl || "")}
                     className="img-fluid rounded-start producto-superpuesto"
                     style={{ maxWidth: '120px', height: 'auto', objectFit: 'contain' }}
                     alt="Postres Individuales"

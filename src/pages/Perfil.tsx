@@ -425,7 +425,7 @@ function Perfil() {
                                     <div className="d-flex gap-2 justify-content-end">
                                         <button
                                             type="button"
-                                            className="btn btn-secondary"
+                                            className="btn btn-dark"
                                             onClick={handleCancelar}
                                             disabled={loading}
                                         >
@@ -433,7 +433,7 @@ function Perfil() {
                                         </button>
                                         <button
                                             type="submit"
-                                            className="btn btn-success"
+                                            className="btn btn-dark"
                                             disabled={loading}
                                         >
                                             {loading ? (
