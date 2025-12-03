@@ -28,10 +28,17 @@ export const CarruselDest: React.FC<Props> = ({ elementos, ids }) => {
   };
 
   const getImagenSrc = (ruta: string) => {
-    if (!ruta) return "/img/placeholder.png";
-    if (ruta.startsWith("http")) return ruta;
-    return `${base_url_img}/img/${ruta}`;
-  };
+        if (!ruta) return "/img/placeholder.png";
+        if (ruta.startsWith("http")) return ruta;
+        
+        const timestamp = Date.now();
+        
+        if (ruta.toLowerCase().includes('pasteles/')) {
+            return `${base_url_img}/img/${ruta}?v=${timestamp}`;
+        }
+        
+        return `${base_url_img}/img/pasteles/${ruta}?v=${timestamp}`;
+    };
 
   return (
     <div className="container justify-content-center mt-4">
